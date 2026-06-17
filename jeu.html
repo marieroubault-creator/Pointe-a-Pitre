@@ -1294,196 +1294,127 @@ function getPortrait(hero) {
 
 // ══ DONNÉES MÉTIERS ══
 var JOBS = [
-  // ── 1. MORGANE – Maritime ──
-  {
-    id:'maritime', name:'Maritime', icon:'⚓', color:'#406BDE',
-    npcName:'Morgane', npcRole:'Officière de pêche · Pointe-à-Pitre',
-    npcPhoto:'img/MorganePP.png',
-    lat:16.2440, lng:-61.5330, xp:150,
-    videoFile:'Morgane1.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/hlov7EFUT7E',
-    videoTitle:'Les métiers de la mer en Guadeloupe',
-    questTitle:"L'appel de la mer",
-    questDesc:'Clique sur Morgane au port de Pointe-à-Pitre.',
-    dialogue:[
-      "Salut ! Moi c'est Morgane, officière de pêche à Pointe-à-Pitre. La mer, c'est ma vie depuis toujours !",
-      "Le secteur maritime guadeloupéen, c'est des milliers d'emplois : marins-pêcheurs, mécaniciens navires, ostréiculteurs, techniciens portuaires..."
-    ],
-    choices:[
-      {text:"La pêche en haute mer, c'est quoi ?", reply:"La pêche hauturière, c'est intense mais passionnant ! L'ENSM de Guadeloupe forme les officiers en 2 à 4 ans. France Travail peut financer la formation !"},
-      {text:"L'aquaculture / les huîtres ?", reply:"L'ostréiculture en baie du Mont-Saint-Michel, c'est une tradition séculaire ! Des formations courtes existent via France Travail, et beaucoup de postes disponibles localement."},
-      {text:"Travailler à terre, au port ?", reply:"Le port de Pointe-à-Pitre recrute des logisticiens, manutentionnaires et techniciens toute l'année. Pas besoin d'aller sur l'eau pour travailler dans le maritime !"}
-    ]
-  },
-  // ── 2. SARAH – Agricultrice bio ──
-  {
-    id:'agriculture', name:'Agriculture bio', icon:'🌾', color:'#8B5BB8',
-    npcName:'Sarah', npcRole:'Agricultrice bio · Sainte-Anne',
-    npcPhoto:'img/SarahPP.png',
-    lat:16.2230, lng:-61.3840, xp:150,
-    videoFile:'Sarah.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/ld61odTHtmQ',
-    videoTitle:"Agriculture bio en Guadeloupe",
-    questTitle:"La ferme de Sarah",
-    questDesc:'Clique sur Sarah à Sainte-Anne.',
-    dialogue:[
-      "Bonjour ! Je suis Sarah, agricultrice bio à Sainte-Anne. On cultive des légumes et on élève des poules en plein air.",
-      "Le bio en Guadeloupe, c'est en plein essor. Les exploitations cherchent des gens passionnés, avec ou sans diplôme !"
-    ],
-    choices:[
-      {text:"Comment se former à l'agriculture bio ?", reply:"Le BPREA Agrobiologie se prépare en 2 ans en alternance. France Travail peut financer la formation. C'est une voie royale pour rejoindre le secteur !"},
-      {text:"C'est rentable le bio ?", reply:"De plus en plus ! Les circuits courts et les AMAP se développent partout dans le 971. Les revenus se stabilisent avec l'expérience et les bonnes pratiques."},
-      {text:"Y a des postes disponibles ?", reply:"Oui, beaucoup ! Les exploitations bio cherchent des maraîchers, des agents d'élevage et des cueilleurs. Contacte France Travail pour les offres en cours."}
-    ]
-  },
-  // ── 3. SOPHIE – Cheffe cuisinière ──
-  {
-    id:'restauration', name:'Restauration', icon:'🍽️', color:'#FFCC52',
-    npcName:'Sophie', npcRole:'Cheffe cuisinière · Saint-François',
-    npcPhoto:'img/SophiePP.png',
-    lat:16.2520, lng:-61.2700, xp:150,
-    videoFile:'Sophie.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/2S3sDu4qA5Q',
-    videoTitle:'Restauration & Hôtellerie en Guadeloupe',
-    questTitle:"La crêperie de Sophie",
-    questDesc:'Clique sur Sophie à Saint-François.',
-    dialogue:[
-      "Bonjour ! Cheffe de cuisine à Saint-François — la capitale de l'huître ! Galettes, crêpes, fruits de mer, on régale toute l'année.",
-      "Le secteur HCR recrute en permanence. Même débutant sans diplôme, on peut démarrer vite et évoluer !"
-    ],
-    choices:[
-      {text:"Devenir cuisinier, par où commencer ?", reply:"Le CAP Cuisine se prépare en 1 an pour les adultes avec France Travail. La gastronomie guadeloupéenne est mondialement reconnue, les opportunités sont immenses !"},
-      {text:"La salle et le service, c'est bien payé ?", reply:"Le Titre Pro Serveur ou le Bac Pro SAPAT se fait rapidement. Les extras payent bien et les débouchés sont partout dans la région."},
-      {text:"Gérer un restaurant un jour ?", reply:"Le BTS MHR (Management Hôtellerie Restauration) ouvre les portes du management. Accessible en alternance et très valorisé dans toute la Guadeloupe !"}
-    ]
-  },
-  // ── 4. NATHAN – Conducteur de travaux nucléaire ──
-  {
-    id:'nucleaire', name:'Nucléaire', icon:'⚛️', color:'#EB6366',
-    npcName:'Nathan', npcRole:'Conducteur de travaux · Le Gosier',
-    npcPhoto:'img/NathanPP.png',
-    lat:16.1990, lng:-61.4980, xp:150,
-    videoFile:'Nathan.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/ZFnOWlLyNbs',
-    videoTitle:'Métiers du nucléaire en Guadeloupe',
-    questTitle:"Le chantier de Nathan",
-    questDesc:'Clique sur Nathan au Gosier.',
-    dialogue:[
-      "Bonjour ! Je suis Nathan, conducteur de travaux sur des chantiers nucléaires. Un secteur qui recrute massivement en ce moment !",
-      "La filière nucléaire a besoin de milliers de profils : techniciens, ingénieurs, soudeurs qualifiés, agents de radioprotection..."
-    ],
-    choices:[
-      {text:"C'est dangereux, le nucléaire ?", reply:"Très encadré ! On suit des formations habilitation nucléaire obligatoires. France Travail finance les préparations aux certifications SCN, CSQ et RP. Sécurité avant tout."},
-      {text:"Quelles formations pour entrer dans le secteur ?", reply:"BAC Pro à BTS selon le poste. EDF et ses sous-traitants recrutent en alternance et forment eux-mêmes. Des centaines de postes en Guadeloupe dans les années à venir !"},
-      {text:"Les salaires sont intéressants ?", reply:"Oui, très ! Un technicien nucléaire débutant gagne 30 à 35k€. Avec les primes et l'expérience, on dépasse vite les 45k€. Un secteur vraiment porteur."}
-    ]
-  },
-  // ── 5. ─ 6. CLAIRE – Auxiliaire de vie ──
-  {
-    id:'aide', name:'Aide à la personne', icon:'🤝', color:'#D9C9E5',
-    npcName:'Claire', npcRole:'Auxiliaire de vie · Basse-Terre',
-    npcPhoto:'img/ClairePP.png',
-    lat:15.9990, lng:-61.7250, xp:150,
-    videoFile:'Claire.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/F-VOm1wzwvY',
-    videoTitle:'Aide à la personne en Guadeloupe',
-    questTitle:"Chez Claire",
-    questDesc:'Clique sur Claire à Basse-Terre.',
-    dialogue:[
-      "Bonjour ! Je suis Claire, auxiliaire de vie à Basse-Terre depuis 8 ans. J'accompagne des personnes âgées et des adultes en situation de handicap au quotidien.",
-      "Les métiers du lien sont parmi les plus recruteurs du 971 en ce moment. Des milliers de postes sont à pourvoir, et la reconnaissance du métier grandit vraiment !"
-    ],
-    choices:[
-      {text:"Accompagner les seniors, comment ça se passe ?", reply:"C'est un accompagnement très humain : aide à la toilette, aux repas, aux déplacements, mais aussi beaucoup d'écoute et de lien social. Le Titre ADVF se prépare en quelques mois, financé par France Travail."},
-      {text:"Travailler avec les personnes handicapées ?", reply:"Le DEAES (Diplôme d'État AES) est la voie royale. Des contrats en alternance sont disponibles partout dans le 971, avec une vraie progression salariale à la clé !"},
-      {text:"C'est un métier qui recrute vraiment ?", reply:"Oui, massivement ! Le vieillissement de la population crée une demande croissante. À Basse-Terre et dans tout le archipel guadeloupéen, les structures cherchent des profils motivés, avec ou sans expérience."}
-    ]
-  },
-  // ── 7. MANU – Serveur ──
-  {
-    id:'manu', name:'Restauration', icon:'🥂', color:'#FFDE8C',
-    npcName:'Manu', npcRole:'Serveur · Deshaies',
-    npcPhoto:'img/ManuPP.png',
-    lat:16.3080, lng:-61.7960, xp:150,
-    videoFile:'Manu.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/NYyxxNX2s0s',
-    videoTitle:'Métiers de la salle & service',
-    questTitle:"La table de Manu",
-    questDesc:'Clique sur Manu à Deshaies.',
-    dialogue:[
-      "Salut ! Moi c'est Manu, serveur dans un restaurant gastronomique à Deshaies. Vue sur mer, clientèle internationale, c'est top !",
-      "Le service en salle, c'est un art ! Contact client, réactivité, sens de l'organisation... et les perspectives d'évolution sont réelles."
-    ],
-    choices:[
-      {text:"Comment devenir serveur rapidement ?", reply:"Le Titre Pro Serveur se prépare en 6 à 12 mois, financé par France Travail. Les saisons permettent de démarrer vite, même sans diplôme !"},
-      {text:"C'est vraiment bien payé ?", reply:"Entre le fixe, les pourboires et les extras en saison, un bon serveur gagne bien sa vie sur la côte guadeloupéenne. Et les horaires peuvent être flexibles !"},
-      {text:"Évoluer vers chef de rang ou manager ?", reply:"Absolument ! Avec de l'expérience et une formation complémentaire (BTS MHR), on peut évoluer vers chef de rang, maître d'hôtel ou même directeur de salle."}
-    ]
-  },
-  // ── 8. FLORIAN – Chaudronnier ──
-  {
-    id:'florian', name:'Industrie', icon:'🔧', color:'#B0BFF0',
-    npcName:'Florian', npcRole:'Chaudronnier · Capesterre-Belle-Eau',
-    npcPhoto:'img/FlorianPP.png',
-    lat:16.0450, lng:-61.5700, xp:150,
-    videoFile:'Florian.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/wBEamqw5g3o',
-    videoTitle:'Chaudronnerie & Métallurgie',
-    questTitle:"L'atelier de Florian",
-    questDesc:'Clique sur Florian à Capesterre-Belle-Eau.',
-    dialogue:[
-      "Bonjour ! Florian, chaudronnier à Capesterre-Belle-Eau depuis 6 ans. Je fabrique et assemble des pièces métalliques pour l'industrie agroalimentaire.",
-      "La chaudronnerie, c'est un métier manuel, précis et créatif. Et les entreprises du 971 cherchent désespérément des profils qualifiés !"
-    ],
-    choices:[
-      {text:"Comment se former à la chaudronnerie ?", reply:"Le Bac Pro Technicien en Chaudronnerie Industrielle (TCI) se prépare en 3 ans, souvent en alternance. France Travail finance aussi des reconversions rapides via des titres pro."},
-      {text:"Quelles pièces tu fabrique au quotidien ?", reply:"Des cuves, des tuyauteries, des échangeurs de chaleur... Tout ce qui est en métal et qui doit résister à la pression et à la chaleur. C'est de la haute précision !"},
-      {text:"C'est un secteur qui recrute ?", reply:"Énormément ! L'industrie agroalimentaire guadeloupéenne (lait, viande, légumes) a besoin de chaudronniers pour entretenir et créer ses installations. Les salaires sont très attractifs."}
-    ]
-  },
-  // ── 9. LAETITIA – Éducatrice de jeunes enfants ──
-  {
-    id:'Laetitia', name:'Petite enfance', icon:'👶', color:'#F0C9DE',
-    npcName:'Laetitia', npcRole:"Éducatrice de jeunes enfants · Marie-Galante",
-    npcPhoto:'img/LaetitiaPP.png',
-    lat:15.8830, lng:-61.2690, xp:150,
-    videoFile:'Laetitia.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/UKJ2awXwErU',
-    videoTitle:'Petite enfance & Éducation',
-    questTitle:"La crèche de Laetitia",
-    questDesc:'Clique sur Laetitia à Marie-Galante.',
-    dialogue:[
-      "Bonjour ! Je suis Laetitia, éducatrice de jeunes enfants à Marie-Galante. J'accompagne le développement des tout-petits de 0 à 6 ans en crèche, c'est un métier qui a vraiment du sens !",
-      "La petite enfance recrute massivement dans le 971. Les crèches, les haltes-garderies et les écoles maternelles cherchent des éducateurs qualifiés et passionnés !"
-    ],
-    choices:[
-      {text:"Comment devenir éducateur de jeunes enfants ?", reply:"Le Diplôme d'État EJE (Bac+3) se prépare en 3 ans. France Travail peut financer la formation en alternance, notamment via des contrats pro avec des crèches municipales ou associatives."},
-      {text:"En quoi c'est différent d'une assistante maternelle ?", reply:"L'EJE conçoit et anime des projets pédagogiques pour le groupe, encadre une équipe et accompagne les familles. C'est un rôle à la fois éducatif, social et managérial — beaucoup plus large !"},
-      {text:"Les débouchés dans le 971, c'est comment ?", reply:"Excellents ! La Guadeloupe manque d'EJE diplômés. Les collectivités, les associations et le secteur privé recrutent toute l'année. Le salaire démarre autour de 1 900 € nets."}
-    ]
-  },
-  // ── 10. JEANNE – Cheffe d'atelier mécanicien ──
-  {
-    id:'jeremy', name:'Mécanique', icon:'🔩', color:'#F5A39E',
-    npcName:'Jeanne', npcRole:"Cheffe d'atelier · Bouillante",
-    npcPhoto:'img/JeannePP.png',
-    lat:16.1220, lng:-61.7720, xp:150,
-    videoFile:'Jeanne.mp4', videoInDialogue:true,
-    questVideo:'https://www.youtube.com/embed/erflQIu7kno',
-    videoTitle:"Mécanique & Chef d'atelier",
-    questTitle:"L'atelier de Jeanne",
-    questDesc:"Clique sur Jeanne à Bouillante.",
-    dialogue:[
-      "Salut ! Moi c'est Jeanne, cheffe d'atelier dans un garage à Bouillante. Je manage une équipe de 6 mécaniciens sur des véhicules toutes marques, du SUV au camion léger.",
-      "La mécanique est en pleine révolution avec le tout-électrique. Les techniciens formés aux nouvelles motorisations sont devenus rares et ultra-demandés — c'est le moment idéal pour se lancer !"
-    ],
-    choices:[
-      {text:"Comment devenir mécanicien auto ?", reply:"Le CAP Maintenance Auto se prépare en 2 ans, souvent en alternance directement dans un garage. France Travail finance aussi des reconversions rapides via des titres pro. Les recrutements sont ouverts partout dans le 971 !"},
-      {text:"L'électrique, c'est vraiment l'avenir ?", reply:"Sans aucun doute ! Les habilitations haute tension pour véhicules hybrides et 100 % électriques sont les plus recherchées du secteur. France Travail finance ces formations courtes et certifiantes, parfois en quelques semaines."},
-      {text:"Évoluer vers cheffe d'atelier comme toi ?", reply:"Tout à fait possible ! Avec 3 à 5 ans d'expérience terrain et un BTS Maintenance Auto ou un Titre chef d'équipe, on peut manager une équipe. Le salaire de cheffe d'atelier démarre à 35 000 € et grimpe vite."}
-    ]
-  }
-];
+ // ── JEAN – Maître de chai ──
+{
+  id:'chai', name:'Chai & Distillerie', icon:'🥃', color:'#8B4513',
+  npcName:'Jean', npcRole:'Maître de chai · Sainte-Rose',
+  npcPhoto:'img/JeanPP.png',
+  lat:16.3320, lng:-61.7000, xp:150,
+  videoFile:'Jean.mp4', videoInDialogue:true,
+  questVideo:'https://www.youtube.com/embed/VOTRE_ID_ICI',
+  videoTitle:'Le chai et le rhum agricole de Guadeloupe',
+  questTitle:"Le chai de Jean",
+  questDesc:"Clique sur Jean à Sainte-Rose.",
+  dialogue:[
+    "Bonjour ! Moi c'est Jean, maître de chai à la distillerie de Sainte-Rose. Mon travail, c'est de surveiller le vieillissement du rhum en fûts de chêne — parfois pendant 3, 6, ou même 15 ans ! Chaque fût est unique, comme une empreinte digitale.",
+    "Un chai, c'est un lieu vivant. Le rhum respire, se transforme, gagne en complexité au fil des saisons. Et moi, je suis là pour guider cette transformation et garantir la qualité de chaque cuvée qui sortira sous l'étiquette de la distillerie."
+  ],
+  choices:[
+    {
+      text:"C'est quoi exactement le rôle d'un maître de chai ?",
+      reply:"Je surveille les fûts, je prélève des échantillons, je contrôle les degrés d'alcool et les arômes à chaque étape. Je décide aussi des assemblages — mélanger plusieurs rhums vieillis pour créer une cuvée équilibrée. C'est à la fois de la science et de l'art ! Un BTS Vigne & Vin ou une formation en œnologie est un bon point de départ."
+    },
+    {
+      text:"Le rhum agricole de Guadeloupe, c'est si spécial ?",
+      reply:"Absolument ! Le rhum agricole guadeloupéen est protégé par une Indication Géographique Protégée depuis 2021. Contrairement au rhum industriel fait de mélasse, le nôtre est distillé directement à partir du jus frais de canne à sucre — c'est ce qui lui donne ses arômes végétaux uniques et sa typicité reconnue dans le monde entier."
+    },
+    {
+      text:"Comment entrer dans ce métier ?",
+      reply:"Il y a plusieurs chemins ! Le BTS Vigne & Vin, un DUT Génie Biologique ou une licence pro en distillation sont les plus directs. Mais beaucoup de maîtres de chai ont commencé comme ouvriers en distillerie et ont évolué sur le terrain. France Travail peut accompagner une reconversion vers ces formations, et les distilleries de Guadeloupe recrutent régulièrement !"
+    }
+  ]
+},
+ // ── MÉLISSA – Responsable tourisme ──
+{
+  id:'tourisme', name:'Tourisme', icon:'🌺', color:'#E67E22',
+  npcName:'Mélissa', npcRole:'Responsable tourisme · Pointe-à-Pitre',
+  npcPhoto:'img/MelissaPP.png',
+  lat:16.2410, lng:-61.5350, xp:150,
+  videoFile:'Melissa.mp4', videoInDialogue:true,
+  questVideo:'https://www.youtube.com/embed/VOTRE_ID_ICI',
+  videoTitle:'Le tourisme en Guadeloupe',
+  questTitle:"L'office de tourisme de Mélissa",
+  questDesc:"Clique sur Mélissa à Pointe-à-Pitre.",
+  dialogue:[
+    "Bonjour ! Moi c'est Mélissa, responsable tourisme à l'office de Pointe-à-Pitre. La Guadeloupe, c'est plus de 1,2 million de visiteurs par an — un secteur qui fait vraiment vivre l'archipel !",
+    "En 2024, les hôtels guadeloupéens ont vendu près de 1,3 million de nuitées — le deuxième meilleur résultat depuis 2011 ! Et entre les plages, la forêt tropicale, le rhum et les festivals créoles, on a tout pour séduire le monde entier."
+  ],
+  choices:[
+    {
+      text:"C'est quoi les métiers du tourisme ici ?",
+      reply:"Guide touristique, agent d'accueil, animateur nature, conseiller en voyages, chargé de communication… Le secteur couvre énormément de profils ! Et le parc hôtelier guadeloupéen est passé de 210 à 250 établissements entre 2020 et 2023 — les recrutements suivent !"
+    },
+    {
+      text:"D'où viennent les touristes en Guadeloupe ?",
+      reply:"Surtout de l'Hexagone, qui représente la grande majorité des visiteurs. Mais le tourisme américain est en pleine progression ! Les Belges sont nos premiers visiteurs européens étrangers. On mise beaucoup sur le tourisme de nature et le tourisme vert pour diversifier."
+    },
+    {
+      text:"Comment travailler dans le tourisme ?",
+      reply:"Le BTS Tourisme ou le Titre Pro Agent de Voyage se préparent en 2 ans, souvent en alternance. Mais beaucoup de postes s'ouvrent aussi sans diplôme en saison ! France Travail recense régulièrement des offres dans les offices de tourisme, les hôtels et les agences de l'archipel."
+    }
+  ]
+},
+  // ── 9. MATHIS -  ──
+ // ── MATHIS – Canne à sucre ──
+{
+  id:'canne', name:'Canne à sucre', icon:'🌿', color:'#4CAF6B',
+  npcName:'Mathis', npcRole:'Ouvrier agricole · Marie-Galante',
+  npcPhoto:'img/MathisPP.png',
+  lat:15.9290, lng:-61.2700, xp:150,
+  videoFile:'Mathis.mp4', videoInDialogue:true,
+  questVideo:'https://www.youtube.com/embed/VOTRE_ID_ICI',
+  videoTitle:'La canne à sucre en Guadeloupe',
+  questTitle:"Les champs de Mathis",
+  questDesc:'Clique sur Mathis à Marie-Galante.',
+  dialogue:[
+    "Salut ! Moi c'est Mathis, ouvrier agricole sur une exploitation cannière à Marie-Galante. Ici, la canne à sucre, c'est toute une culture — au sens propre comme au figuré !",
+    "La filière canne, c'est une chaîne complète : des champs à la distillerie, en passant par l'usine sucrière. Des dizaines de métiers différents, et beaucoup de postes à pourvoir dans le 971 !"
+  ],
+  choices:[
+    {
+      text:"C'est quoi le travail dans les champs de canne ?",
+      reply:"La coupe, le transport, l'entretien des parcelles... Aujourd'hui beaucoup de machines, mais les bras humains restent indispensables. On peut démarrer sans diplôme et se former sur le tas via le CUMA ou des formations Vivéa."
+    },
+    {
+      text:"Et après la récolte, qu'est-ce qu'on produit ?",
+      reply:"Le sucre de canne bien sûr, mais surtout le rhum agricole — la fierté de la Guadeloupe ! Marie-Galante compte plusieurs distilleries. Techniciens de distillation, agents de laboratoire, logisticiens... les débouchés sont variés !"
+    },
+    {
+      text:"C'est un secteur qui recrute vraiment ?",
+      reply:"Oui ! La filière canne-sucre-rhum emploie plus de 3 000 personnes en Guadeloupe. Entre les récoltes saisonnières et les postes permanents à la Gardel ou dans les distilleries, France Travail a régulièrement des offres à saisir."
+    }
+  ]
+},
+ // ── LUCIE – Mise en bouteille du rhum ──
+{
+  id:'rhum', name:'Rhum & Distillerie', icon:'🍾', color:'#C0392B',
+  npcName:'Lucie', npcRole:'Opératrice de mise en bouteille · Capesterre-Belle-Eau',
+  npcPhoto:'img/LuciePP.png',
+  lat:16.0450, lng:-61.5600, xp:150,
+  videoFile:'Lucie.mp4', videoInDialogue:true,
+  questVideo:'https://www.youtube.com/embed/VOTRE_ID_ICI',
+  videoTitle:'Le rhum agricole de Guadeloupe',
+  questTitle:"La distillerie de Lucie",
+  questDesc:'Clique sur Lucie à Capesterre-Belle-Eau.',
+  dialogue:[
+    "Bonjour ! Moi c'est Lucie, opératrice de mise en bouteille à la distillerie de Capesterre. Chaque bouteille qui part d'ici, c'est un peu de l'âme de la Guadeloupe qu'on envoie dans le monde entier !",
+    "La filière rhum, c'est bien plus qu'un simple alcool : c'est un savoir-faire classé, une Indication Géographique Protégée, et toute une chaîne de métiers passionnants — du champ de canne jusqu'à l'étiquette sur la bouteille."
+  ],
+  choices:[
+    {
+      text:"C'est quoi exactement la mise en bouteille ?",
+      reply:"On contrôle le remplissage, le bouchage, l'étiquetage et l'emballage sur des lignes automatisées. C'est de la rigueur, de la précision et de la réactivité. Un CAP ou Bac Pro en conduite de ligne industrielle est idéal, et France Travail peut financer la formation !"
+    },
+    {
+      text:"Il y a d'autres métiers dans une distillerie ?",
+      reply:"Plein ! Maître de chai, technicien de laboratoire, agent de maintenance, logisticien, commercial export... La distillerie, c'est une vraie petite usine. Certains postes recrutent même sans diplôme avec une formation interne."
+    },
+    {
+      text:"Le rhum guadeloupéen, c'est vraiment reconnu ?",
+      reply:"C'est une fierté nationale ! Le Rhum Agricole de Guadeloupe est protégé par une IGP depuis 2021. On exporte vers l'Europe, le Japon, les États-Unis... Travailler dans ce secteur, c'est être ambassadeur d'un produit d'exception."
+    }
+  ]
+},
 
 
 // ══ STATE ══
